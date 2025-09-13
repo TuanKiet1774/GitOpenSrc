@@ -33,5 +33,5 @@ dir -> Để xem các file con bên trong
 12. git branch Branch1 -> Tạo một nhánh tên là Branch1
 
 13. git checkout Branch1 -> Chuyển sang làm việc trên nhánh Branch1
-git checkout master -> Quay lại làm việc trên nhánh master
+git checkout main -> Quay lại làm việc trên nhánh main
 
