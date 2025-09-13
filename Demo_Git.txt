@@ -21,3 +21,6 @@ Sử dụng git status để kiểm tra (file màu xanh)
 8. git pull -> Đồng bộ code từ Github về máy 
 
 Nếu xảy ra trường hợp bị xung đột, tức là trên Github có lệnh mà Local không có, thì phải git pull để đồng bộ code về Local rồi mới push lên Github
+
+9. git clone https://github.com/thanhbinh24-peace/gitCourse.git -> Lấy code từ một Repo nào đó về Local
+
