@@ -36,3 +36,4 @@ dir -> Để xem các file con bên trong
 git checkout main -> Quay lại làm việc trên nhánh main
 
 14. git merge Branch1 -> Trộn nhánh main vào vị trí nhánh hiện tại Branch1
+Đảm bảo đang ở nhánh cần trộn ví dụ nhánh main => git checkout main => git merge Branch1
