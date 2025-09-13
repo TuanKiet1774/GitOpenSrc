@@ -38,3 +38,4 @@ Sau khi tạo nhánh mới, để đẩy code lên nhánh này thì cần phải
 
 git checkout main -> Quay lại làm việc trên nhánh main
 
+14. git merge Branch1 -> Trộn nhánh main vào vị trí nhánh hiện tại Branch1
