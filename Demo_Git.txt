@@ -19,3 +19,5 @@ Sử dụng git status để kiểm tra (file màu xanh)
 7. git push -> Sau khi chỉnh sửa thêm, git add. và git commit để thêm thay đổi, ta sẽ sử dụng git push để đẩy code thay đổi lên Github
 
 8. git pull -> Đồng bộ code từ Github về máy 
+
+Nếu xảy ra trường hợp bị xung đột, tức là trên Github có lệnh mà Local không có, thì phải git pull để đồng bộ code về Local rồi mới push lên Github
