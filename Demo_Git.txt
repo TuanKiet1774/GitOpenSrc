@@ -15,3 +15,5 @@ Sử dụng git status để kiểm tra (file màu xanh)
 5. git log -> Để kiểm tra commits 
 
 6. git remote add origin https://github.com/TuanKiet1774/GitOpenSrc.git -> Gắn repo local với repo GitHub từ xa, để sau đó bạn có thể git push (đẩy code lên) hoặc git pull (kéo code về).
+
+7. git push -> Sau khi chỉnh sửa thêm, git add. và git commit để thêm thay đổi, ta sẽ sử dụng git push để đẩy code thay đổi lên Github
