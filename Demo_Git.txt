@@ -28,7 +28,7 @@ Nếu xảy ra trường hợp bị xung đột, tức là trên Github có lệ
 cd gitCourse -> Chuyển đường dẫn sang thư mục gitCourse
 dir -> Để xem các file con bên trong
 
-11. git branch -> Xem thử những nhánh của một repo
+11. git branch -> Xem nhánh hiện tại
 
 12. git branch Branch1 -> Tạo một nhánh tên là Branch1
 
