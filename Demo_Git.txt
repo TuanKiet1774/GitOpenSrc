@@ -1,15 +1,17 @@
 Phạm Tuấn Kiệt - 64131060
 =========================
 Các lệnh Git cơ bản
-1. git init - Khởi tạo 1 Git Repo ở trong máy của mình 
+1. git init -> Khởi tạo 1 Git Repo ở trong máy của mình 
 Initialized empty Git repository in... => Tạo Git Repo thành công
 
-2. git status - Kiểm tra có bất kỳ sự thay đổi nào không
+2. git status -> Kiểm tra có bất kỳ sự thay đổi nào không
 No commits yet => Chưa có bất kỳ sự thay đổi nào (file màu đỏ)
 
-3. git add . - cập nhật toàn bộ thay đổi lên Staging Area (khu vực chờ)
+3. git add . -> cập nhật toàn bộ thay đổi lên Staging Area (khu vực chờ)
 Sử dụng git status để kiểm tra (file màu xanh)
 
-4. git commit -m "Nội dung, ghi chú Comit" - lưu từ khu vực chờ vào local repository
+4. git commit -m "Nội dung, ghi chú Comit" -> lưu từ khu vực chờ vào local repository
+
+5. git log -> để kiểm tra commits 
 
 
