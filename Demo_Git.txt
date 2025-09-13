@@ -16,11 +16,13 @@ Sử dụng git status để kiểm tra (file màu xanh)
 
 6. git remote add origin https://github.com/TuanKiet1774/GitOpenSrc.git -> Gắn repo local với repo GitHub từ xa, để sau đó bạn có thể git push (đẩy code lên) hoặc git pull (kéo code về).
 
-7. git push -> Sau khi chỉnh sửa thêm, git add. và git commit để thêm thay đổi, ta sẽ sử dụng git push để đẩy code thay đổi lên Github
+7. git branch -M main -> Tạo nhánh main trong Repo trên Github
 
-8. git pull -> Đồng bộ code từ Github về máy 
+8. git push -> Sau khi chỉnh sửa thêm, git add. và git commit để thêm thay đổi, ta sẽ sử dụng git push để đẩy code thay đổi lên Github
+
+9. git pull -> Đồng bộ code từ Github về máy 
 
 Nếu xảy ra trường hợp bị xung đột, tức là trên Github có lệnh mà Local không có, thì phải git pull để đồng bộ code về Local rồi mới push lên Github
 
-9. git clone https://github.com/thanhbinh24-peace/gitCourse.git -> Lấy code từ một Repo nào đó về Local
+10. git clone https://github.com/thanhbinh24-peace/gitCourse.git -> Lấy code từ một Repo nào đó về Local
 
