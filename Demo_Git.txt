@@ -18,7 +18,7 @@ Sử dụng git status để kiểm tra (file màu xanh)
 
 7. git branch -M main -> Tạo nhánh main trong Repo trên Github
 
-8. git push -> Sau khi chỉnh sửa thêm, git add. và git commit để thêm thay đổi, ta sẽ sử dụng git push để đẩy code thay đổi lên Github
+8. git push -> Sau khi chỉnh sửa thêm, git add . và git commit để thêm thay đổi, ta sẽ sử dụng git push để đẩy code thay đổi lên Github
 
 9. git pull -> Đồng bộ code từ Github về máy 
 
