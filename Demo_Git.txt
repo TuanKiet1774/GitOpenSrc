@@ -25,4 +25,13 @@ Sử dụng git status để kiểm tra (file màu xanh)
 Nếu xảy ra trường hợp bị xung đột, tức là trên Github có lệnh mà Local không có, thì phải git pull để đồng bộ code về Local rồi mới push lên Github
 
 10. git clone https://github.com/thanhbinh24-peace/gitCourse.git -> Lấy code từ một Repo nào đó về Local
+cd gitCourse -> Chuyển đường dẫn sang thư mục gitCourse
+dir -> Để xem các file con bên trong
+
+11. git branch -> Xem thử những nhánh của một repo
+
+12. git branch Branch1 -> Tạo một nhánh tên là Branch1
+
+13. git checkout Branch1 -> Chuyển sang làm việc trên nhánh Branch1
+git checkout master -> Quay lại làm việc trên nhánh master
 
