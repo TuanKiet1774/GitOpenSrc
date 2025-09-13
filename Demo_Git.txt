@@ -33,5 +33,8 @@ dir -> Để xem các file con bên trong
 12. git branch Branch1 -> Tạo một nhánh tên là Branch1
 
 13. git checkout Branch1 -> Chuyển sang làm việc trên nhánh Branch1
-git checkout master -> Quay lại làm việc trên nhánh master
+Sau khi tạo nhánh mới, để đẩy code lên nhánh này thì cần phải chỉ rõ đẩy nhánh này lên remote với tên gì (Lần đầu)
+=> git push --set-upstream origin Branch1
+
+git checkout main -> Quay lại làm việc trên nhánh main
 
