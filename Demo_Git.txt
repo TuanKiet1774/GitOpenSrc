@@ -7,11 +7,11 @@ Initialized empty Git repository in... => Tạo Git Repo thành công
 2. git status -> Kiểm tra có bất kỳ sự thay đổi nào không
 No commits yet => Chưa có bất kỳ sự thay đổi nào (file màu đỏ)
 
-3. git add . -> cập nhật toàn bộ thay đổi lên Staging Area (khu vực chờ)
+3. git add . -> Cập nhật toàn bộ thay đổi lên Staging Area (khu vực chờ)
 Sử dụng git status để kiểm tra (file màu xanh)
 
-4. git commit -m "Nội dung, ghi chú Comit" -> lưu từ khu vực chờ vào local repository
+4. git commit -m "Nội dung, ghi chú Comit" -> Lưu từ khu vực chờ vào local repository
 
-5. git log -> để kiểm tra commits 
+5. git log -> Để kiểm tra commits 
 
-
+6. git remote add origin https://github.com/TuanKiet1774/GitOpenSrc.git -> Gắn repo local với repo GitHub từ xa, để sau đó bạn có thể git push (đẩy code lên) hoặc git pull (kéo code về).
