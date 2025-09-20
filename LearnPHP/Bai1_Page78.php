@@ -28,6 +28,13 @@
         background-color: #000000ff;
         margin: 20px 0;
     }
+
+    table,
+    td,
+    tr {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
 </style>
 
 <body>
@@ -54,7 +61,7 @@
 
         for ($i = 1; $i <= 10; $i++) {
             echo "<ul style='list-style-type: none; width: 15%;'>";
-            echo "<li><strong>Bảng nhân $i</strong></li>";
+            echo "<li><strong>Chương $i</strong></li>";
             echo "<li>";
             for ($j = 1; $j <= 10; $j++) {
                 echo "$i x $j = " . ($i * $j) . "<br>";
@@ -63,8 +70,31 @@
             echo "</ul>";
         }
 
-        echo "</div>";
+        echo "</div><br>";
         ?>
+
+        <table>
+            <tr>
+                <?php
+                for ($i = 1; $i <= 10; $i++) {
+                    echo "<td>";
+                    echo "<strong>Chương $i</strong>";
+                    echo "</td>";
+                }
+                ?>
+            </tr>
+            <tr>
+                <?php
+                for ($i = 1; $i <= 10; $i++) {
+                    echo "<td>";
+                    for ($j = 1; $j <= 10; $j++) {
+                        echo "$i x $j = " . ($i * $j) . "<br>";
+                    }
+                    echo "</td>";
+                }
+                ?>
+            </tr>
+        </table>
 
         <div class="line"></div>
         <p><strong>Bài 3:</strong> Viết 1 trang web nhận một giá trị ngẫu nhiên là số tự nhiên N có giá trị trong [−100; 100]. Sau đó kiểm tra N có là số dương không? Nếu thỏa thì:
@@ -76,7 +106,7 @@
         </ul>
 
         <?php
-        $N = rand(-100, 100);
+        $N = random_int(-100, 100);
         echo "<span><strong>Số ngẫu nhiên N = $N</strong></span><br>";
 
         function uocSoN($N)
@@ -120,12 +150,72 @@
 
         echo "<ul>
         <li>Các ước số của $N là: " . (count(uocSoN($N)) == 0 ? "Không có" : implode(", ", uocSoN($N))) . "</li>
-        <li>Số N = $N " . (checkSNT($N) ? "là số nguyên tố" : "không phải là số nguyên tố") . "</li>
+        <li>Số N = $N " . (checkSNT($N) ? "là số nguyên tố" : "không phải là số nguyên tố") . "</li>s
         <li>Tổng các số nguyên tố nhỏ hơn $N: " . sumNguyenTo($N) . "</li>
         <li>Số N = $N " . (checkSCP($N) ? "là số chính phương" : "không phải là số chính phương") . "</li>
         </ul>";
         ?>
         </p>
+
+        <div class="line"></div>
+
+        <p><strong>Bài 4:</strong> Viết hàm tính C(k,n), A(k,n). Với k, n là số nguyên dương</p>
+        <?php
+        $n = random_int(1, 10);
+        $k = random_int(1, $n);
+
+        function giaiThua($n)
+        {
+            $temp = 1;
+            for ($i = 1; $i <= $n; $i++) {
+                $temp *= $i;
+            }
+            return $temp;
+        }
+
+        function toHop($k, $n)
+        {
+            $temp = (float) giaiThua($n) / (giaiThua($k) * giaiThua($n - $k));
+            return $temp;
+        }
+
+        function chinhHop($k, $n)
+        {
+            $temp = (float) giaiThua($n) / giaiThua($n - $k);
+            return $temp;
+        }
+
+        echo "{$n} A {$k} = " . chinhHop($k, $n) . "<br>";
+        echo "{$n} C {$k} = " . toHop($k, $n);
+        ?>
+
+        <div class="line"></div>
+
+        <p><strong>Bài 5:</strong> Tô màu ô có giá trị là chẵn</p>
+
+        <table>
+            <tr>
+                <?php
+                for ($i = 1; $i <= 10; $i++) {
+                    echo "<td>";
+                    echo "<strong>Chương $i</strong>";
+                    echo "</td>";
+                }
+                ?>
+            </tr>
+            <tr>
+                <?php
+                for ($i = 1; $i <= 10; $i++) {
+                    echo "<td>";
+                    for ($j = 1; $j <= 10; $j++) {
+                        $color = (($i * $j) % 2 == 0) ? "red" : "blue";
+                        echo "<span style='background-color: $color; display: inline-block; width: 100%;'>" . "$i x $j = " . ($i * $j) . "<br></span>";
+                    }
+                    echo "</td>";
+                }
+                ?>
+            </tr>
+        </table>
     </div>
 </body>
 
