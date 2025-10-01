@@ -18,7 +18,7 @@
 
 | STT    | Bài tập      | Code|
 |--------|-----------------|------------|
-| 1      | Lệnh Linux | [Linux](Git/Lệnh Linux.pdf)|
+| 1      | Lệnh Linux | [Linux](Git/Lệnh%20Linux.pdf)|
 | 2      | Bài tập chương 2  | [Chương 2](LearnPHP/BaiTap_Chuong2.php)|
 | 3      | Bài tập chương 3  | [Chương 3](LearnPHP/BaiTap_Chuong3) |
 | 4      | Bài tập chương 4  | [Chương 4](LearnPHP/BaiTap_Chuong4)|
