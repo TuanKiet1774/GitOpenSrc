@@ -22,8 +22,9 @@
 | 2      | Bài tập chương 2  | [Chương 2](LearnPHP/BaiTap_Chuong2.php)|
 | 3      | Bài tập chương 3  | [Chương 3](LearnPHP/BaiTap_Chuong3) |
 | 4      | Bài tập chương 4  | [Chương 4](LearnPHP/BaiTap_Chuong4)|
-| 5      | Bài tập Form      | [BT Form](LearnPHP/BatTap_Form)|
-| 6      |...|...|
+| 5      | Bài tập Form      | [BT Form](LearnPHP/BatTapThucHanh/BaiTap_Form)|
+| 6      | Bài tập mảng, chuỗi và hàm| [BT MCH](LearnPHP/BatTapThucHanh/BaiTap_MCH)|
+| 7      |...|...|
 
 ---
 
