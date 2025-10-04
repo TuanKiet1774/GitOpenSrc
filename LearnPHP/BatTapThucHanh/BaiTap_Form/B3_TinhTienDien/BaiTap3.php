@@ -65,7 +65,7 @@ if (isset($_POST["btn"])) {
     $pr = $_POST["price"];
     $money = $_POST["money"];
 
-    if (is_numeric($new) and is_numeric($old) and $old > 0 and $new > 0) {
+    if (is_numeric($new) and is_numeric($old) and $old > 0 and $new > 0 and $new > $old) {
         $money = ($new - $old) * $pr;
     } else {
         $money = "Thông số không hợp lệ";

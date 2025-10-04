@@ -88,21 +88,25 @@ if (isset($_POST["btn"])) {
         }
     }
 
-    switch ($cal) {
-        case "Cộng":
-            $result = cong($num1, $num2);
-            break;
-        case "Trừ":
-            $result =  tru($num1, $num2);
-            break;
-        case "Nhân":
-            $result =  nhan($num1, $num2);
-            break;
-        case "Chia":
-            $result =  chia($num1, $num2);;
-            break;
-        default:
-            "Số hoặc phép tính không hợp lệ";
+    if (filter_var($num1, FILTER_VALIDATE_INT) && filter_var($num2, FILTER_VALIDATE_INT)) {
+        switch ($cal) {
+            case "Cộng":
+                $result = cong($num1, $num2);
+                break;
+            case "Trừ":
+                $result =  tru($num1, $num2);
+                break;
+            case "Nhân":
+                $result =  nhan($num1, $num2);
+                break;
+            case "Chia":
+                $result =  round(chia($num1, $num2), 2);
+                break;
+            default:
+                $result = "Số hoặc phép tính không hợp lệ";
+        }
+    } else {
+        $result = "Số không phải là số nguyên ";
     }
 }
 ?>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diện tích và Chu vi hình tròn</title>
+    <title>Bài tập 2 - Mảng, Chuỗi & Hàm</title>
 </head>
 <style>
     * {
@@ -24,7 +24,7 @@
 
     .container {
         width: fit-content;
-        background-color: bisque;
+        background-color: yellow;
         padding: 10px;
         border-radius: 15px;
         align-items: center;
@@ -60,16 +60,20 @@
 </style>
 <?php
 if (isset($_POST["btn"])) {
-    $bankinh = $_POST["banKinh"];
-    $cv = $_POST["chuVi"];
-    $dt = $_POST["dienTich"];
-    define("Pi", 3.14);
+    $num = $_POST["num"];
+    $sum = $_POST["sum"];
+    $count = 0;
 
-    if (is_numeric($bankinh) and $bankinh > 0) {
-        $dt = round(Pi * $bankinh * $bankinh, 2);
-        $cv = round(2 * Pi * $bankinh, 2);
+    $ar = explode(",", $num);
+    foreach ($ar as $key => $value) {
+        if (!is_numeric($ar[$key])) {
+            $count++;
+        }
+    }
+    if ($count == 0) {
+        $arp = array_sum($ar);
     } else {
-        $dt = $cv = "Thông số không hợp lệ";
+        $arp = "Dãy số không hợp lệ";
     }
 }
 ?>
@@ -77,25 +81,25 @@ if (isset($_POST["btn"])) {
 <body>
     <div class="container">
         <center>
-            <h3>DIỆN TÍCH và CHU VI HÌNH TRÒN</h3>
+            <h3>NHẬP VÀ TÍNH TRÊN DÃY SỐ</h3>
         </center>
-        <form action="BaiTap2.php" method="post">
+        <form action="Bai2.php" method="post">
             <table>
                 <tr>
-                    <td>Bán kính: </td>
-                    <td><input type="text" name="banKinh" value="<?php echo isset($_POST["banKinh"]) ? $_POST["banKinh"] : " "; ?>"></td>
+                    <td>Nhập dãy số: </td>
+                    <td><input type="text" name="num" value="<?php echo isset($_POST["num"]) ? $_POST["num"] : " "; ?>"> <span style="color: red;">(*)</span></td>
                 </tr>
                 <tr>
-                    <td>Chu vi: </td>
-                    <td><input type="text" name="chuVi" readonly value="<?php echo isset($cv) ? $cv : " "; ?>" style="background-color: #ccc;"></td>
+                    <td colspan="2" align="center"><input type="submit" name="btn" value="Tính tổng"></td>
                 </tr>
                 <tr>
-                    <td>Diện tích: </td>
-                    <td><input type="text" name="dienTich" readonly value="<?php echo isset($dt) ? $dt : " "; ?>" style="background-color: #ccc;"></td>
+                    <td>Tổng dãy số: </td>
+                    <td><input type="text" name="sum" readonly value="<?php echo isset($arp) ? $arp : " "; ?>" style="background-color: #d8d6d6ff;"></td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center"><input type="submit" name="btn" value="Tính"></td>
+                    <td colspan="2" align="center"><span style="color: red;">(*)</span> Các số được nhập cách nhau bằng dấu "," </td>
                 </tr>
+
             </table>
         </form>
     </div>

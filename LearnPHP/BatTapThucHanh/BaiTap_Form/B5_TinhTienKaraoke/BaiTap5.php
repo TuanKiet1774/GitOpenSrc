@@ -70,14 +70,16 @@ if (isset($_POST["btn"])) {
                 $money = ($end - $start) * 20000;
             } else if ($end >= 17 and $end < 24 and $start >= 17 and $start < 24) {
                 $money = ($end - $start) * 45000;
+            } else if ($end > 17 and $end <= 24 and $start >= 10 and $start < 17) {
+                $money = (17 - $start) * 20000 + ($end - 17) * 45000;
             } else {
-                $money = "Giờ kết thúc phải lớn hơn giờ bắt đầu";
+                $money = "Thời gian không hợp lệ";
             }
         } else {
             $money = "Giờ kết thúc phải lớn hơn giờ bắt đầu";
         }
     } else {
-        $money = "Hãy nhập thông tin";
+        $money = "Hãy nhập thông tin chính xác";
     }
 }
 ?>

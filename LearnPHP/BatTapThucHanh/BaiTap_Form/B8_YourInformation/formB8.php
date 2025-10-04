@@ -69,7 +69,7 @@
 <body>
     <div class="container">
         <fieldset>
-            <legend><b>Enter Your Information</b></legend>
+            <legend style="margin-left: 10px;"><b>Enter Your Information</b></legend>
             <form action="config.php" method="post">
                 <table>
                     <tr>

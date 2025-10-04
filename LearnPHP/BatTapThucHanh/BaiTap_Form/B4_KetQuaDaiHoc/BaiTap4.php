@@ -69,7 +69,7 @@ if (isset($_POST["btn"])) {
 
     if (is_numeric($toan) and is_numeric($ly) and is_numeric($hoa)) {
         $tongDiem = $hoa + $ly + $toan;
-        if ($tongDiem >= $diemChuan and $toan > 0 and $ly > 0 and $hoa > 0) {
+        if ($tongDiem >= $diemChuan and $toan > 0 and $ly > 0 and $hoa > 0 and $toan <= 10 and $ly <= 10 and $hoa <= 10) {
             $ketQua = "Đậu";
         } else {
             $ketQua = "rớt";

@@ -96,7 +96,7 @@ if (isset($_POST["btn"])) {
                 $result =  nhan($num1, $num2);
                 break;
             case "Chia":
-                $result = $num2 > 0 ? chia($num1, $num2) : chia($num1 * -1, $num2 * -1);
+                $result = $num2 > 0 ? round(chia($num1, $num2), 2) : round(chia($num1 * -1, $num2 * -1), 2);
                 break;
         }
     } else {
@@ -120,7 +120,7 @@ if (isset($_POST["btn"])) {
                     <td><?php echo isset($cal) ? $cal : " "; ?></td>
                 </tr>
                 <tr>
-                    <td>Số thứ nhât: </td>
+                    <td>Số thứ nhất: </td>
                     <td><input type="text" name="num1" readonly value="<?php echo isset($_POST["num1"]) ? $_POST["num1"] : " "; ?>"></td>
                 </tr>
                 <tr>
