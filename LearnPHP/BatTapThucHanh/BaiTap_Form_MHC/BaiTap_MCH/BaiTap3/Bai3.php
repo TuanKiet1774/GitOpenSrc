@@ -91,11 +91,15 @@ if (isset($_POST["btn"])) {
         return min($arr);
     }
 
-    $array = taoMang($num);
-    $arrayStr = xuatMang($array);
-    $sum = tinhTong($array);
-    $max = timMax($array);
-    $min = timMin($array);
+    if (filter_var($num, FILTER_VALIDATE_INT)) {
+        $array = taoMang($num);
+        $arrayStr = xuatMang($array);
+        $sum = tinhTong($array);
+        $max = timMax($array);
+        $min = timMin($array);
+    } else {
+        $arrayStr = "Số lượng phần tử không hợp lệ (n > 0)";
+    }
 }
 ?>
 
@@ -103,7 +107,7 @@ if (isset($_POST["btn"])) {
 <body>
     <div class="container">
         <center>
-            <h3>PHÁT SINH MẢNG VÀ TÍNH TOÁN</h3>
+            <h3 style="color: white;">PHÁT SINH MẢNG VÀ TÍNH TOÁN</h3>
         </center>
         <form action="Bai3.php" method="post">
             <table>
