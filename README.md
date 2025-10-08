@@ -27,7 +27,8 @@
 | 7      | Bài tập SQL       | [BT SQL](LearnPHP/BatTapThucHanh/BaiTapSQL)|
 | 8      | CSDL QL_BanSua    | [QL_BanSua](quanly_ban_sua.sql)|
 | 9      | Sữa       | [Hinh](Hinh_sua)|
-| 10     |...|...|
+| 10     | Sơ đô     | [Diagram](LearnPHP/BatTapThucHanh/BaiTapSQL/DiagramDB.png)|
+| 11     |...|...|
 
 ---
 
