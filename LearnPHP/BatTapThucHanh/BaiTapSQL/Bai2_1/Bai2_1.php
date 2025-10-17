@@ -67,7 +67,7 @@
 </style>
 <?php
 //Kết nối với DB (Hàm thủ tục)
-require_once __DIR__ . '/../config/db_connect.php';
+include_once("../config/db_connect.php");
 
 $sql = "SELECT * FROM hang_sua";
 $result = mysqli_query($conn, "$sql");
