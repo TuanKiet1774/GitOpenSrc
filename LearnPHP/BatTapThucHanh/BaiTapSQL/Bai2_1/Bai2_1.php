@@ -110,8 +110,6 @@ $m = mysqli_num_fields($result); //Cột
         echo "<td>" . $col[4] . "</td>";
         echo "</tr>";
       }
-
-      mysqli_free_result($result);
       mysqli_close($conn);
       ?>
     </table>
