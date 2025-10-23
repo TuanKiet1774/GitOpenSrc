@@ -91,7 +91,7 @@ if (isset($_POST["btn"])) {
         return min($arr);
     }
 
-    if (filter_var($num, FILTER_VALIDATE_INT)) {
+    if (filter_var($num, FILTER_VALIDATE_INT) && $num > 0) {
         $array = taoMang($num);
         $arrayStr = xuatMang($array);
         $sum = tinhTong($array);

@@ -88,7 +88,6 @@ $n = mysqli_num_rows($result);
         <th>Giới tính</th>
         <th>Địa chỉ</th>
         <th>Điện thoại</th>
-        <th>Email</th>
       </tr>
       <?php
       for ($i = 0; $i < $n; $i++) {
@@ -97,11 +96,10 @@ $n = mysqli_num_rows($result);
         $col = mysqli_fetch_array($result);
         echo "<td style = 'background-color: $color;' >" . $col['0'] . "</td>";
         echo "<td style = 'background-color: $color;'>" . $col['1'] . "</td>";
-        $gt = $col[2] == 1 ? "Nam" : "Nữ";
-        echo "<td style = 'background-color: $color; text-align: center'> $gt </td>";
+        // $gt = $col[2] == 1 ? "Nam" : "Nữ";
+        echo "<td style = 'background-color: $color; text-align: center'> $col[2] </td>";
         echo "<td style = 'background-color: $color;'>" . $col['3'] . "</td>";
         echo "<td style = 'background-color: $color;'>" . $col['4'] . "</td>";
-        echo "<td style = 'background-color: $color;'>" . $col['5'] . "</td>";
         echo "</tr>";
       }
 

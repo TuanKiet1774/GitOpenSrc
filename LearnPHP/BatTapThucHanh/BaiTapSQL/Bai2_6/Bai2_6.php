@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bài 2.4 Lưới phân trang</title>
+  <title>Bài 2.6 List dạng cột</title>
 </head>
 <style>
   * {
@@ -32,10 +32,12 @@
 
   table {
     border-collapse: collapse;
+    margin: auto;
   }
 
   table tr td,
   th {
+    width: 250px;
     padding: 5px;
     border-color: black;
   }
@@ -49,28 +51,28 @@
   }
 
   .pagination a {
-    /* text-decoration: none; */
-    color: red;
+    text-decoration: none;
+    color: blue;
     padding: 5px;
   }
 
   .pagination b {
-    /* color: red; */
+    color: red;
     padding: 5px;
+  }
+
+  img {
+    width: 70px;
   }
 </style>
 
 <body>
   <div class="container">
-    <center>
-      <h3>THÔNG TIN SỮA</h3>
-    </center>
-
     <?php
     include_once("../config/db_connect.php");
 
     // Cấu hình phân trang
-    $rowsPerPage = 5;
+    $rowsPerPage = 15;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     if ($page < 1) $page = 1;
     $offset = ($page - 1) * $rowsPerPage;
@@ -85,7 +87,7 @@
     $maxPage = ceil($rowCount / $rowsPerPage);
 
     // Lấy dữ liệu cho trang hiện tại
-    $sql = "SELECT s.Ten_sua, hs.Ten_hang_sua, ls.Ten_loai, s.Trong_luong, s.Don_gia 
+    $sql = "SELECT s.Ten_sua, hs.Ten_hang_sua, ls.Ten_loai, s.Trong_luong, s.Don_gia, s.Hinh 
             FROM sua s 
             INNER JOIN hang_sua hs ON s.Ma_hang_sua = hs.Ma_hang_sua 
             INNER JOIN loai_sua ls ON ls.Ma_loai_sua = s.Ma_loai_sua
@@ -95,45 +97,46 @@
 
     <table border="1">
       <tr>
-        <th>Số TT</th>
-        <th>Tên Sữa</th>
-        <th>Hãng sữa</th>
-        <th>Loại sữa</th>
-        <th>Trọng lượng</th>
-        <th>Đơn giá</th>
+        <td colspan="5" align="center" style="color: orange;">
+          <h3>THÔNG TIN SẢN PHẨM</h3>
+        </td>
       </tr>
-
       <?php
       $stt = $offset + 1;
+      $col = 0;
+      echo "<tr>";
       while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>{$stt}</td>";
-        echo "<td>{$row['Ten_sua']}</td>";
-        echo "<td>{$row['Ten_hang_sua']}</td>";
-        echo "<td>{$row['Ten_loai']}</td>";
-        echo "<td>{$row['Trong_luong']}</td>";
-        echo "<td>{$row['Don_gia']}</td>";
-        echo "</tr>";
-        $stt++;
+        $path = '../Hinh_sua/' . $row['Hinh'];
+        echo "<td align='center'>
+          <b>" . $row['Ten_sua'] . "</b><br>
+          " . $row['Trong_luong'] . " gr - " . $row['Don_gia'] . " VNĐ<br>
+          <img src='$path'>
+        </td>";
+        $col++;
+
+        // Khi đủ 5 cột thì xuống dòng
+        if ($col % 5 == 0) echo "</tr><tr>";
       }
+      echo "</tr>";
+
       ?>
     </table>
 
     <div class="pagination" style="text-align:center; margin-top:10px;">
       <?php
       if ($page > 1) {
-        echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . ($page - 1) . "><<</a> ";
+        echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . ($page - 1) . ">Back</a> ";
       }
 
       for ($i = 1; $i <= $maxPage; $i++) {
         if ($i == $page)
-          echo "<b><u>$i</u></b> ";
+          echo "<b>[$i]</b> ";
         else
-          echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=$i>$i</a> ";
+          echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=$i>[$i]</a> ";
       }
 
       if ($page < $maxPage) {
-        echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . ($page + 1) . ">>></a>";
+        echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=" . ($page + 1) . ">Next</a>";
       }
 
       mysqli_close($conn);

@@ -13,7 +13,7 @@
     box-sizing: border-box;
   }
 
-  body {
+  body { 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,7 +88,6 @@ $n = mysqli_num_rows($result);
         <th>Giới tính</th>
         <th>Địa chỉ</th>
         <th>Điện thoại</th>
-        <th>Email</th>
       </tr>
       <?php
       for ($i = 0; $i < $n; $i++) {
@@ -101,7 +100,6 @@ $n = mysqli_num_rows($result);
         echo "<td style = 'background-color: $color; text-align: center'> $gt </td>";
         echo "<td style = 'background-color: $color;'>" . $col['3'] . "</td>";
         echo "<td style = 'background-color: $color;'>" . $col['4'] . "</td>";
-        echo "<td style = 'background-color: $color;'>" . $col['5'] . "</td>";
         echo "</tr>";
       }
 

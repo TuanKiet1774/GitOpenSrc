@@ -60,10 +60,6 @@
     padding: 5px;
     border-color: black;
   }
-
-  th {
-    color: red;
-  }
 </style>
 <?php
 //Kết nối với DB (Hàm thủ tục)
@@ -107,11 +103,11 @@ $m = mysqli_num_fields($result); //Cột
         $color = ($i % 2 == 0) ? "#fee0c1" : "white";
         echo "<tr>";
         $col = mysqli_fetch_array($result);
-        echo "<td style = 'background-color: $color'>" . $col[0] . "</td>";
-        echo "<td style = 'background-color: $color'>" . $col[1] . "</td>";
-        echo "<td style = 'background-color: $color'>" . $col[2] . "</td>";
-        echo "<td style = 'background-color: $color'>" . $col[3] . "</td>";
-        echo "<td style = 'background-color: $color'>" . $col[4] . "</td>";
+        echo "<td>" . $col[0] . "</td>";
+        echo "<td>" . $col[1] . "</td>";
+        echo "<td>" . $col[2] . "</td>";
+        echo "<td>" . $col[3] . "</td>";
+        echo "<td>" . $col[4] . "</td>";
         echo "</tr>";
       }
 

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bài 2.4 Lưới phân trang</title>
+  <title>Bài 2.5 List đơn giản</title>
 </head>
 <style>
   * {
@@ -32,10 +32,12 @@
 
   table {
     border-collapse: collapse;
+    margin: auto;
   }
 
   table tr td,
   th {
+    width: 250px;
     padding: 5px;
     border-color: black;
   }
@@ -44,7 +46,7 @@
     color: red;
   }
 
-  tr:nth-child(even) {
+  tr th {
     background-color: #fee0c1;
   }
 
@@ -58,14 +60,14 @@
     /* color: red; */
     padding: 5px;
   }
+
+  img {
+    width: 70px;
+  }
 </style>
 
 <body>
   <div class="container">
-    <center>
-      <h3>THÔNG TIN SỮA</h3>
-    </center>
-
     <?php
     include_once("../config/db_connect.php");
 
@@ -85,7 +87,7 @@
     $maxPage = ceil($rowCount / $rowsPerPage);
 
     // Lấy dữ liệu cho trang hiện tại
-    $sql = "SELECT s.Ten_sua, hs.Ten_hang_sua, ls.Ten_loai, s.Trong_luong, s.Don_gia 
+    $sql = "SELECT s.Ten_sua, hs.Ten_hang_sua, ls.Ten_loai, s.Trong_luong, s.Don_gia, s.Hinh 
             FROM sua s 
             INNER JOIN hang_sua hs ON s.Ma_hang_sua = hs.Ma_hang_sua 
             INNER JOIN loai_sua ls ON ls.Ma_loai_sua = s.Ma_loai_sua
@@ -95,24 +97,17 @@
 
     <table border="1">
       <tr>
-        <th>Số TT</th>
-        <th>Tên Sữa</th>
-        <th>Hãng sữa</th>
-        <th>Loại sữa</th>
-        <th>Trọng lượng</th>
-        <th>Đơn giá</th>
+        <th colspan="5" align="center" style="color: orange;">
+          <h3>THÔNG TIN SẢN PHẨM</h3>
+        </th>
       </tr>
-
       <?php
       $stt = $offset + 1;
       while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>{$stt}</td>";
-        echo "<td>{$row['Ten_sua']}</td>";
-        echo "<td>{$row['Ten_hang_sua']}</td>";
-        echo "<td>{$row['Ten_loai']}</td>";
-        echo "<td>{$row['Trong_luong']}</td>";
-        echo "<td>{$row['Don_gia']}</td>";
+        $path = '../Hinh_sua/' . $row['Hinh'];
+        echo "<td align='center'><img src = '$path'></td>";
+        echo "<td><b>" . $row['Ten_sua'] . "</b><br>Nhà sản xuất: " . $row['Ten_hang_sua'] . "<br>" . $row['Ten_loai'] . " - " . $row['Trong_luong'] . " gr - " . $row['Don_gia'] . " VNĐ</td>";
         echo "</tr>";
         $stt++;
       }
@@ -127,7 +122,7 @@
 
       for ($i = 1; $i <= $maxPage; $i++) {
         if ($i == $page)
-          echo "<b><u>$i</u></b> ";
+          echo "<b>$i</b> ";
         else
           echo "<a href=" . $_SERVER['PHP_SELF'] . "?page=$i>$i</a> ";
       }
