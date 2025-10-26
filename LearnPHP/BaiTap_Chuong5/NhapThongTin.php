@@ -71,47 +71,49 @@
   th {
     color: red;
   }
+
+  .btnresult {
+    text-decoration: none;
+    padding: 5px;
+    background-color: #ff9500ff;
+    color: black;
+    border-radius: 5px;
+  }
 </style>
 <?php
 include_once('./config/db_connect.php');
 
+$alert = "";
+$ho = $ten = $diaChi = $lop = "";
+
 if (isset($_POST['btnSend'])) {
-  $ten = $_POST['ten'];
-  $ho = $_POST['ho'];
-  $diaChi = $_POST['diaChi'];
+  $ten = trim($_POST['ten']);
+  $ho = trim($_POST['ho']);
+  $diaChi = trim($_POST['diaChi']);
   $lop = $_POST['lop'];
-  $alert = "";
 
-  if (isset($ten) || isset($ho) || isset($diaChi) || isset($lop)) {
+  if (empty($ten) || empty($ho) || empty($diaChi) || empty($lop)) {
     $alert = "Thông tin không được để trống!";
-  }
-
-  $sql = "INSERT INTO `ThongTinSV` (`Ho`, `Ten`, `DiaChi`, `MaLop`) VALUES ('$ho', '$ten', '$diaChi', '$lop');";
-  $result = mysqli_query($conn, "$sql");
-
-  if ($result) {
-    $alert = "Thêm thông tin sinh viên thành công!";
   } else {
-    $alert = "Thêm thông tin sinh viên thất bại!";
-  }
+    $sql = "INSERT INTO ThongTinSV (Ho, Ten, DiaChi, MaLop) VALUES ('$ho', '$ten', '$diaChi', '$lop')";
+    $result = mysqli_query($conn, $sql);
 
-  mysqli_close($conn);
+    if ($result) {
+      $alert = "Thêm thông tin sinh viên thành công!";
+    } else {
+      $alert = "Thêm thông tin sinh viên thất bại!";
+    }
+  }
 }
 
 if (isset($_POST['btnDelete'])) {
-  $ten = $_POST['ten'];
-  $ho = $_POST['ho'];
-  $diaChi = $_POST['diaChi'];
-  $lop = $_POST['lop'];
-
-  if (isset($ten) || isset($ho) || isset($diaChi) || isset($lop)) {
-    $ten = "";
-    $ho = "";
-    $diaChi = "";
-  }
+  $ho = $ten = $diaChi = "";
+  $lop = "";
 }
 
+mysqli_close($conn);
 ?>
+
 
 <body>
   <div class="container">
@@ -137,19 +139,21 @@ if (isset($_POST['btnDelete'])) {
           <td>Lớp: </td>
           <td>
             <select name="lop">
-              <option value="641">64.CNTT-1</option>
-              <option value="642">64.CNTT-2</option>
-              <option value="643">64.CNTT-3</option>
-              <option value="644">64.CNTT-4</option>
+              <option value="641" <?php echo isset($lop) && $lop == "641" ? "selected" : ""; ?>>64.CNTT-1</option>
+              <option value="642" <?php echo isset($lop) && $lop == "642" ? "selected" : ""; ?>>64.CNTT-2</option>
+              <option value="643" <?php echo isset($lop) && $lop == "643" ? "selected" : ""; ?>>64.CNTT-3</option>
+              <option value="644" <?php echo isset($lop) && $lop == "644" ? "selected" : ""; ?>>64.CNTT-4</option>
             </select>
           </td>
         </tr>
         <tr>
           <td colspan="2" align="center">
             <input type="submit" name="btnSend" value="Gửi">
-            <input type="reset" name="btnDelete" value="Xoá">
-            <input type="submit" value="Xem kết quả 1" formaction="./XemThongTin.php">
-            <input type="submit" value="Xem kết quả 2" formaction="./XemThongLop.php">
+            <input type="submit" name="btnDelete" value="Xoá">
+            <!-- <input type="submit" value="Xem kết quả 1" formaction="./XemThongTin.php"> -->
+            <!-- <input type="submit" value="Xem kết quả 2" formaction="./XemThongLop.php"> -->
+            <a href="./XemThongTin.php" class="btnresult">Xem kết quả 1</a>
+            <a href="./XemThongLop.php" class="btnresult">Xem kết quả 2</a>
           </td>
         </tr>
         <tr>

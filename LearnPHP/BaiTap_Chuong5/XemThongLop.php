@@ -82,7 +82,7 @@ $m = mysqli_num_fields($result);
 <body>
     <div class="container">
         <center>
-            <h2>THÔNG TIN SINH VIÊN</h2>
+            <h2>THÔNG TIN Lớp</h2>
         </center>
         <a href="./NhapThongTin.php">Quay lại trang trước</a>
         <table border="1">
