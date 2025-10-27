@@ -150,8 +150,6 @@ mysqli_close($conn);
           <td colspan="2" align="center">
             <input type="submit" name="btnSend" value="Gửi">
             <input type="submit" name="btnDelete" value="Xoá">
-            <!-- <input type="submit" value="Xem kết quả 1" formaction="./XemThongTin.php"> -->
-            <!-- <input type="submit" value="Xem kết quả 2" formaction="./XemThongLop.php"> -->
             <a href="./XemThongTin.php" class="btnresult">Xem kết quả 1</a>
             <a href="./XemThongLop.php" class="btnresult">Xem kết quả 2</a>
           </td>

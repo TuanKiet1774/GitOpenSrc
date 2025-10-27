@@ -68,15 +68,36 @@
     tr:nth-child(even) {
         background-color: #fee0c1;
     }
+
+    .ptrang {
+        margin-top: 10px;
+        color: black;
+    }
+
+    .ptrang a {
+        text-decoration: none;
+        padding: 5px;
+
+    }
 </style>
 <?php
 include_once('./config/db_connect.php');
 
-$sql = "SELECT sv.Ho, sv.Ten, sv.DiaChi, lp.TenLop, lp.CVHT FROM thongtinsv sv INNER JOIN thongtinlop lp WHERE sv.MaLop = lp.id;";
-$result = mysqli_query($conn, "$sql");
-$n = mysqli_num_rows($result);
-$m = mysqli_num_fields($result);
+$rowPerPage = 2;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+if ($page < 1) $page = 1;
 
+$offset = ($page - 1) * $rowPerPage;
+$sqlCount = "SELECT * FROM thongtinsv sv INNER JOIN thongtinlop lp WHERE sv.MaLop = lp.id";
+$dbCount = mysqli_query($conn, $sqlCount);
+$count = mysqli_num_rows($dbCount);
+$maxPage = ceil($count / $rowPerPage);
+
+$sql = "SELECT sv.Ho, sv.Ten, sv.DiaChi, lp.TenLop, lp.CVHT 
+        FROM thongtinsv sv INNER JOIN thongtinlop lp 
+        WHERE sv.MaLop = lp.id
+        LIMIT $offset, $rowPerPage";
+$result = mysqli_query($conn, "$sql");
 ?>
 
 <body>
@@ -95,23 +116,40 @@ $m = mysqli_num_fields($result);
                 <th>Cố vấn học tập</th>
             </tr>
             <?php
-            for ($i = 0; $i < $n; $i++) {
-                $color = ($i % 2 == 0) ? "#fee0c1" : "white";
+            $i = $offset;
+            while ($col = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                $col = mysqli_fetch_array($result);
-                echo "<td>" . $i . "</td>";
-                echo "<td>" . $col['0'] . "</td>";
-                echo "<td>" . $col['1'] . " </td>";
-                echo "<td>" . $col['2'] . "</td>";
-                echo "<td>" . $col['3'] . "</td>";
-                echo "<td>" . $col['4'] . "</td>";
+                echo "<td>" . $i + 1 . "</td>";
+                echo "<td>" . $col['Ho'] . "</td>";
+                echo "<td>" . $col['Ten'] . " </td>";
+                echo "<td>" . $col['DiaChi'] . "</td>";
+                echo "<td>" . $col['TenLop'] . "</td>";
+                echo "<td>" . $col['CVHT'] . "</td>";
                 echo "</tr>";
+                $i++;
             }
 
-            mysqli_free_result($result);
             mysqli_close($conn);
             ?>
         </table>
+        <center class="ptrang">
+            <?php
+            if ($page > 1) {
+                echo "<a href =" . $_SERVER['PHP_SELF'] . "?page=" . ($page - 1) . "><<</a>";
+            }
+            for ($i = 1; $i <= $maxPage; $i++) {
+                if ($i == $page) {
+                    echo "<b>$i</b>";
+                } else {
+                    echo "<a href =" . $_SERVER['PHP_SELF'] . "?page=" . $i . "> $i </a>";
+                }
+            }
+
+            if ($page < $maxPage) {
+                echo "<a href =" . $_SERVER['PHP_SELF'] . "?page=" . ($page + 1) . ">>></a>";
+            }
+            ?>
+        </center>
     </div>
 </body>
 

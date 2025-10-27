@@ -73,9 +73,7 @@
 include_once('./config/db_connect.php');
 
 $sql = "SELECT * FROM thongtinsv";
-$result = mysqli_query($conn, "$sql");
-$n = mysqli_num_rows($result);
-$m = mysqli_num_fields($result);
+$db = mysqli_query($conn, "$sql");
 
 ?>
 
@@ -94,19 +92,18 @@ $m = mysqli_num_fields($result);
                 <th>Mã lớp</th>
             </tr>
             <?php
-            for ($i = 0; $i < $n; $i++) {
-                $color = ($i % 2 == 0) ? "#fee0c1" : "white";
+            $i = 0;
+            while ($col = mysqli_fetch_assoc($db)) {
                 echo "<tr>";
-                $col = mysqli_fetch_array($result);
-                echo "<td>" . $i . "</td>";
-                echo "<td>" . $col['1'] . "</td>";
-                echo "<td>" . $col['2'] . " </td>";
-                echo "<td>" . $col['3'] . "</td>";
-                echo "<td>" . $col['4'] . "</td>";
+                echo "<td>" . $i + 1 . "</td>";
+                echo "<td>" . $col['Ho'] . "</td>";
+                echo "<td>" . $col['Ten'] . " </td>";
+                echo "<td>" . $col['DiaChi'] . "</td>";
+                echo "<td>" . $col['MaLop'] . "</td>";
                 echo "</tr>";
+                $i++;
             }
 
-            mysqli_free_result($result);
             mysqli_close($conn);
             ?>
         </table>
