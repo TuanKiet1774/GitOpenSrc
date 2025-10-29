@@ -29,7 +29,8 @@
 | 9      | CSDL QL_BanSua    | [QL_BanSua](quanly_ban_sua.sql)|
 | 10     | Sữa       | [Hinh](Hinh_sua)|
 | 11     | Sơ đô     | [Diagram](LearnPHP/BatTapThucHanh/BaiTapSQL/DiagramDB.png)|
-| 12     |...|...|
+| 12     | Thi Giữa Kỳ| [Đề Thi GK](ThiGK)|
+| 13     |...|...|
 
 ---
 
