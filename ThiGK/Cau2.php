@@ -33,7 +33,7 @@
         background-color: blue;
     }
 
-    input[type="reset"] {
+    input[type="button"] {
         padding: 5px;
         width: 100px;
         background-color: red;
@@ -83,6 +83,15 @@
             $tb = "";
         }
     }
+
+    if (isset($_POST['btnreset'])) {
+        $numk = $_POST['numk'];
+        $numN = $_POST['numn'];
+
+        if (isset($numK) || isset($numN)) {
+            $numk = $numN = "";
+        }
+    }
     ?>
 
     <div class="container">
@@ -114,7 +123,7 @@
                 <tr>
                     <td colspan="2" align="center">
                         <input type="submit" name="btnsend" value="Tính chỉnh hợp">
-                        <input type="reset" name="btnreset" value="Làm mới">
+                        <input type="button" name="btnreset" value="Làm mới" onclick="window.location.href=window.location.pathname">
                     </td>
                 </tr>
 
