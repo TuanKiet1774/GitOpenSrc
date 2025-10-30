@@ -74,22 +74,13 @@
         $numK = $_POST['numk'];
         $numN = $_POST['numn'];
 
-        if (checkNum($numK) && checkNum($numN) && $numK <= $numN) {
+        if (checkNum($numK) && checkNum($numN) && $numK <= $numN && $numK != null && $numN != null) {
             $gt = giaiThua($numN) / giaiThua($numN - $numK);
             $kq = "Chỉnh hợp chập $numK của $numN phần tử là: $gt";
             $tb = "Có $gt cách chọn ra $numK phần tử (có phân biệt thứ tự) từ một tập hợp có $numN phần tử.";
         } else {
             $kq = "Số n hoặc k nhập vào không hợp lệ. Vui lòng nhập số nguyên dương và k ≤ n.";
             $tb = "";
-        }
-    }
-
-    if (isset($_POST['btnreset'])) {
-        $numk = $_POST['numk'];
-        $numN = $_POST['numn'];
-
-        if (isset($numK) || isset($numN)) {
-            $numk = $numN = "";
         }
     }
     ?>
@@ -105,13 +96,13 @@
                 <tr>
                     <td><b>Nhập k</b></td>
                     <td>
-                        <input type="text" name="numk" value="<?php echo isset($_POST['numk']) ? $_POST['numk'] : "" ?>">
+                        <input type="text" name="numk" value="<?php echo isset($_POST['numk']) ? $_POST['numk'] : "" ?>" required>
                     </td>
                 </tr>
                 <tr>
                     <td><b>Nhập n</b></td>
                     <td>
-                        <input type="text" name="numn" value="<?php echo isset($_POST['numn']) ? $_POST['numn'] : "" ?>">
+                        <input type="text" name="numn" value="<?php echo isset($_POST['numn']) ? $_POST['numn'] : "" ?>" required>
                     </td>
                 </tr>
                 <tr>
