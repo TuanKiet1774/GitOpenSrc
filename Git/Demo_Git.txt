@@ -42,3 +42,8 @@ git checkout main -> Quay lại làm việc trên nhánh main
 Đảm bảo đang ở nhánh cần trộn ví dụ nhánh main => git checkout main => git merge Branch1
 Sau khi merge ==> git add . và git push để đẩy code lên Github. 
 Vì merge đã tự động commit khi trộn
+
+15. Xoá thư mục .git (Trường hợp thư mục git được khởi tạo ở sai vị trí)
+Remove-Item -Recurse -Force .git
+Kiểm tra lại: git rev-parse --show-toplevel -> fatal: not a git repository (Thành công)
+Tiếp theo thực hiện theo bước 6
